@@ -1,0 +1,19 @@
+shared:
+  image: node:16
+
+annotations:
+  screwdriver.cd/chainPR: true
+
+jobs:
+  job1:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - echo: echo hoge
+  job2:
+    requires: [ job1 ]
+    steps:
+      - echo: echo hoge
+  job3:
+    requires: [ ~commit, ~pr ]
+    steps:
+      - echo: echo hoge
